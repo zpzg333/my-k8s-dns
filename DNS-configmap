@@ -1,5 +1,5 @@
-kind: ConfigMap  
-metadata:        
+kind: ConfigMap
+metadata:  
   name: core-dns-service-coredns
   namespace: dns-service
 apiVersion: v1
