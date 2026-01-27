@@ -10,6 +10,7 @@ data:
             192.168.202.20 www.mycvp.com # < Sample URL#1
             192.168.203.20 www.game.com # < Sample URL#2
             192.168.202.21 www.mycvp1.com
+            192.168.202.22 www.mycvp2.com
             fallthrough # Hosts 에 없으면 forward . /etc/resolv.conf 여길 참조
         }
         ready
