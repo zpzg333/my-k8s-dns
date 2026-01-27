@@ -26,3 +26,7 @@ data:
         reload
         loadbalance
     }
+kind: ConfigMap  # <--- 추
+metadata:        # <--- 추가
+  name: core-dns-service-coredns
+  namespace: dns-service
