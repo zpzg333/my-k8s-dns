@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core-dns-service-coredns
+  namespace: dns-service
+  labels:
+    app.kubernetes.io/instance: core-dns-service
+    app.kubernetes.io/name: coredns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: core-dns-service
+      app.kubernetes.io/name: coredns
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: core-dns-service
+        app.kubernetes.io/name: coredns
+    spec:
+      containers:
+      - name: coredns
+        image: coredns/coredns:1.13.1
+        imagePullPolicy: IfNotPresent
+        args: ["-conf", "/etc/coredns/Corefile"]
+        ports:
+        - containerPort: 53
+          name: udp-53
+          protocol: UDP
+        - containerPort: 53
+          name: tcp-53
+          protocol: TCP
+        - containerPort: 9153
+          name: tcp-9153
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8181
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add: ["NET_BIND_SERVICE"]
+            drop: ["ALL"]
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/coredns
+      volumes:
+      - name: config-volume
+        configMap:
+          name: core-dns-service-coredns
+          items:
+          - key: Corefile
+            path: Corefile
