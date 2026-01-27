@@ -1,3 +1,7 @@
+kind: ConfigMap  
+metadata:        
+  name: core-dns-service-coredns
+  namespace: dns-service
 apiVersion: v1
 data:
   Corefile: |-
@@ -7,11 +11,11 @@ data:
             lameduck 10s
         }
         hosts {
-            192.168.202.20 www.mycvp.com # < Sample URL#1
-            192.168.203.20 www.game.com # < Sample URL#2
+            192.168.202.20 www.mycvp.com 
+            192.168.203.20 www.game.com 
             192.168.202.21 www.mycvp1.com
             192.168.202.22 www.mycvp2.com
-            fallthrough # Hosts 에 없으면 forward . /etc/resolv.conf 여길 참조
+            fallthrough 
         }
         ready
         kubernetes cluster.local in-addr.arpa ip6.arpa {
@@ -26,7 +30,3 @@ data:
         reload
         loadbalance
     }
-kind: ConfigMap  # <--- 추
-metadata:        # <--- 추가
-  name: core-dns-service-coredns
-  namespace: dns-service
