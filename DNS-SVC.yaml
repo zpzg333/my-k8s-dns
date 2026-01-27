@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: core-dns-service
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: coredns
+    helm.sh/chart: coredns-1.45.0
+  name: core-dns-service-coredns
+  namespace: dns-service
+spec:
+  allocateLoadBalancerNodePorts: true
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: udp-53
+    nodePort: 31882
+    port: 53
+    protocol: UDP
+    targetPort: 53
+  - name: tcp-53
+    nodePort: 32539
+    port: 53
+    protocol: TCP
+    targetPort: 53
+  selector:
+    app.kubernetes.io/instance: core-dns-service
+    app.kubernetes.io/name: coredns
+  sessionAffinity: None
+  type: LoadBalancer
