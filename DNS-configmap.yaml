@@ -16,6 +16,7 @@ data:
             192.168.202.21 www.mycvp1.com
             192.168.202.22 www.mycvp2.com
             192.168.202.23 www.mycvp3.com
+            192.168.202.243 www.mycvp4.com
             fallthrough 
         }
         ready
