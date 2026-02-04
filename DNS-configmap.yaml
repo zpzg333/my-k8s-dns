@@ -11,6 +11,7 @@ data:
             lameduck 10s
         }
         hosts {
+            192.168.203.63 www.syargocd.com
             192.168.202.20 www.mycvp.com 
             192.168.203.20 www.game.com 
             192.168.202.21 www.mycvp1.com
