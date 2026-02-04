@@ -13,12 +13,6 @@ data:
         hosts {
             192.168.203.63 www.syargocd.com
             192.168.203.72 www.syansible.com
-            192.168.202.20 www.mycvp.com 
-            192.168.203.20 www.game.com 
-            192.168.202.21 www.mycvp1.com
-            192.168.202.22 www.mycvp2.com
-            192.168.202.23 www.mycvp3.com
-            192.168.202.243 www.mycvp4.com
             fallthrough 
         }
         ready
