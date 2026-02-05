@@ -11,8 +11,8 @@ data:
             lameduck 10s
         }
         hosts {
-            192.168.203.63 www.syargocd.com
-            192.168.203.72 www.syansible.com
+            192.168.203.70 www.syargocd.com
+            192.168.203.63 www.syansible.com
             fallthrough 
         }
         ready
