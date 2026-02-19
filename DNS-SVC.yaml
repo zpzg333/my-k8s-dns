@@ -7,6 +7,8 @@ metadata:
     app.kubernetes.io/name: coredns
     helm.sh/chart: coredns-1.45.0
   name: core-dns-service-coredns
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 192.168.203.68
   namespace: dns-service
 spec:
   allocateLoadBalancerNodePorts: true
