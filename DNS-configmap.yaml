@@ -13,6 +13,9 @@ data:
         hosts {
             192.168.203.70 www.syargocd.com
             192.168.203.63 www.syansible.com
+            192.168.202.70 www.syk8smaster.com
+            192.168.202.72 www.syk8snode1.com
+            192.168.202.78 www.sydockerbuilder.com
             fallthrough 
         }
         ready
