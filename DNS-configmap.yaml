@@ -16,6 +16,8 @@ data:
             192.168.202.70 www.syk8smaster.com
             192.168.202.72 www.syk8snode1.com
             192.168.202.78 www.sydockerbuilder.com
+            192.168.203.64 www.sygrafana.com
+            192.168.203.67 www.syprometheus.com
             fallthrough 
         }
         ready
