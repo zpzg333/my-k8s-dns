@@ -19,8 +19,8 @@ data:
             192.168.203.64 www.sygrafana.com
             192.168.203.67 www.syprometheus.com
             192.168.201.244 www.dwcts.cvp1.co.kr
-            192.168.201.245 www.dwcts.cvp1.co.kr
-            192.168.201.246 www.dwcts.cvp1.co.kr
+            192.168.201.245 www.dwcts.cvp2.co.kr
+            192.168.201.246 www.dwcts.cvp3.co.kr
             
             fallthrough 
         }
