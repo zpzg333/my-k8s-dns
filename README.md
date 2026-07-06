@@ -1,6 +1,7 @@
 # my-k8s-dns
 
-> 홈랩 Kubernetes 클러스터 전용 커스텀 DNS 서버.  
+> Kubernetes 클러스터 전용 커스텀 DNS 서버.
+> Configmap 수정으로 간단하게 DNS 서버 설정. 
 > CoreDNS on Kubernetes로 내부 서비스 도메인을 관리하고 CVP, 모니터링, CI/CD 툴에 도메인을 할당.
 
 ---
